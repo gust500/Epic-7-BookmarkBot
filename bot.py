@@ -1,9 +1,21 @@
+from pickle import TRUE
 from pyautogui import * 
 import pyautogui 
 import time 
 import keyboard 
 import random
 import win32api, win32con , win32gui
+
+print('---CHOOSE EPIC SEVEN EMULATOR WINDOW---')
+validWindows = []
+windowCount = 0
+for x in pyautogui.getAllWindows():  
+    if(x.title != ''):
+        validWindows.append(x.title)
+        print(str(windowCount)+') '+validWindows[windowCount])
+        windowCount = windowCount+1
+windowNum = input('Epic Seven window  :  ')
+windowName=validWindows[int(windowNum)]
 
 epicWnd = win32gui.FindWindow(None,'BlueStacks App Player')
 
@@ -15,7 +27,7 @@ getCovenant = input('Get Covenant Bookmarks? Y/N  :  ')
 
 if(getCovenant.lower() == 'y'):
     getCovenant = True
-    wantBookmarks['covenant'] = input('How many Covenant Bookmarks? Y/N  :  ')
+    wantBookmarks['covenant'] = input('How many Covenant Bookmarks?  :  ')
 else:
     getCovenant = False
 
@@ -23,7 +35,7 @@ getMystic = input('Get Mystic Medals? Y/N  :  ')
 
 if(getMystic.lower() == 'y'):
     getMystic = True
-    wantBookmarks['mystic'] = input('How many  Mystic Medals? Y/N  :  ')
+    wantBookmarks['mystic'] = input('How many  Mystic Medals?  :  ')
 else:
     getMystic = False
 
@@ -31,7 +43,7 @@ getFriendship = input('Get Friendship Bookmarks? Y/N  :  ')
 
 if(getFriendship.lower() == 'y'):
     getFriendship = True
-    wantBookmarks['friendship'] = input('How many Friendship Bookmarks? Y/N  :  ')
+    wantBookmarks['friendship'] = input('How many Friendship Bookmarks?  :  ')
 else:
     getFriendship = False
 
@@ -42,7 +54,15 @@ h = y1 - y0 # height
 windowX = 10
 windowY = 10
 #370
-win32gui.MoveWindow(epicWnd, windowX,windowY, 830,482, False)
+
+win32gui.MoveWindow(epicWnd,x0,y0, 830,482,True)
+x0, y0, x1, y1 = win32gui.GetWindowRect(epicWnd)
+win32api.SetCursorPos((x0+10,y0+10))
+sleep(0.5)
+win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
+sleep(0.5)
+win32api.SetCursorPos((windowX+10,windowX+10))
+win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
 
 def searchBookmarks(bookmarkName):
     if(int(wantBookmarks[bookmarkName]) > nOfBookmarks[bookmarkName] ):
@@ -62,10 +82,13 @@ def searchBookmarks(bookmarkName):
                 win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
                 sleep(2)
                 nOfBookmarks[bookmarkName] = nOfBookmarks[bookmarkName]+1
+                gotBookmark[bookmarkName] = True
     else:
         sys.exit()
 
+sleep(1)
 while 1:
+    
     win32api.SetCursorPos((windowX+150,windowY+200))
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
