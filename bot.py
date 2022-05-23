@@ -17,7 +17,7 @@ for x in pyautogui.getAllWindows():
 windowNum = input('Epic Seven window  :  ')
 windowName=validWindows[int(windowNum)]
 
-epicWnd = win32gui.FindWindow(None,'BlueStacks App Player')
+epicWnd = win32gui.FindWindow(None,validWindows[windowCount])
 
 nOfBookmarks = {'covenant':0,'mystic':0,'friendship':0}
 wantBookmarks = {}
