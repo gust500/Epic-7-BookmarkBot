@@ -96,7 +96,7 @@ while 1:
     if getMystic : searchBookmarks('mystic')
 
     win32api.SetCursorPos((windowX+550,windowY+250))
-    win32api.mouse_event(win32con.MOUSEEVENTF_WHEEL,0,0, -1, 0)
+    pyautogui.scroll(-10)
     sleep(1)
 
     if getFriendship : searchBookmarks('friendship')
