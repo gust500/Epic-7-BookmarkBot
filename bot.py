@@ -58,10 +58,7 @@ windowY = 10
 win32gui.MoveWindow(epicWnd,x0,y0, 830,482,True)
 x0, y0, x1, y1 = win32gui.GetWindowRect(epicWnd)
 win32api.SetCursorPos((x0+10,y0+10))
-sleep(0.5)
-win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
-sleep(0.5)
-win32api.SetCursorPos((windowX+10,windowX+10))
+pyautogui.dragTo(10, 10,0.25, button='left')
 win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,0,0)
 
 def searchBookmarks(bookmarkName):
