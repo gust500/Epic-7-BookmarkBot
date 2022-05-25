@@ -3,7 +3,7 @@ const path = require('path');
 const {execSync, spawn} = require('child_process')
 const { ipcMain } = require('electron')
 
-var pythonExecutable = __dirname + "/python/venv/Scripts/python.exe";
+var pythonExecutable = path.join(__dirname, "python/venv/Scripts/python.exe");
 console.log(pythonExecutable)
 var process = 0;
 
@@ -56,7 +56,7 @@ app.on('will-quit', () => {
 
 ipcMain.on('getWindows',(event, arg) => {
   
-  var result = execSync(pythonExecutable+" src/python/getWindows.py");
+  var result = execSync(pythonExecutable+" "+path.join(__dirname,"python/getWindows.py"));
   console.log(result.toString())
 
   event.returnValue = result;
@@ -65,9 +65,9 @@ ipcMain.on('getWindows',(event, arg) => {
 ipcMain.on('startBot',(event, arg) => {
   console.log(arg[0])
   console.log(arg[1])
-  var result = execSync(pythonExecutable+' src/python/resizeWindow.py "'+arg[0]+'"');
+  var result = execSync(pythonExecutable+' '+path.join(__dirname,"python/resizeWindow.py")+' "'+arg[0]+'"');
   
-  process = spawn(pythonExecutable,['src/python/bot.py',arg[1]]);
+  process = spawn(pythonExecutable,[path.join(__dirname,'python/bot.py'),arg[1],path.join(__dirname,"python/")]);
 
   process.stdout.on('data', (data) => {
     console.log(data.toString());

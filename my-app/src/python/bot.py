@@ -11,6 +11,7 @@ import os
 print("Working dir:", os.getcwd())
 print("Files in here:", os.listdir("."))
 args = json.loads(sys.argv[1])
+imagePath = sys.argv[2]
 
 windowX = 10
 windowY = 10
@@ -25,7 +26,7 @@ def searchBookmarks(bookmarkName):
     if(int(wantBookmarks[bookmarkName]) > nOfBookmarks[bookmarkName] ):
         if(gotBookmark[bookmarkName] == False):
 
-            bookmark = pyautogui.locateOnScreen('./src/python/'+bookmarkName+'.png',confidence=0.7)
+            bookmark = pyautogui.locateOnScreen(imagePath+bookmarkName+'.png',confidence=0.7)
 
             if(bookmark != None):
                 print(bookmarkName)
@@ -38,14 +39,14 @@ def searchBookmarks(bookmarkName):
     else:
         sys.exit()
 while 1:
-    sleep(0.15)
+    sleep(0.25)
     if getBookmarks['friendship'] : searchBookmarks('friendship')
     if getBookmarks['covenant'] : searchBookmarks('covenant')
     if getBookmarks['mystic'] : searchBookmarks('mystic')
 
     pyautogui.moveTo(windowX+550,windowY+250)
     pyautogui.scroll(-500)
-    sleep(1.1)
+    sleep(1.5)
 
     if getBookmarks['friendship'] : searchBookmarks('friendship')
     if getBookmarks['covenant'] : searchBookmarks('covenant')
