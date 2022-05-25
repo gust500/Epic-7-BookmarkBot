@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="../dist/output.css" />
+  <link href="../node_modules/select2/dist/css/select2.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+  
+</head>
+
+<body class="container bg-zinc-900">
+  <div class="flex">
+    <div class="grow">
+      <label for="">Emulator</label>
+      <div>
+        <select id="emulatorWindow" class="select2 bg-zinc-800 outline-none grow w-10/12 scrollbar" name="state">
+        </select>
+        <button id="refreshWindows" onclick="getWindows()"><i class="fa-solid fa-rotate-right shrink-0"></i></button>
+      </div>
+      <div class="pt-4">
+        <input id="covenantCheck" type="checkbox" class="form-checkbox rounded text-blue-600" />
+        <label for="covenantCheck">Buy Covenant Bookmarks</label>
+        <input type="number" value="0" name="" id="covenantNumber" class="form-input rounded ml-2 w-16 h-8 align-middle bg-zinc-800 border-none">
+        times
+        <label id="lblcovenantCheck" for="covenantNumber">(0 Bookmarks)</label>
+      </div>
+      <div class="pt-4">
+        <input id="mysticCheck" type="checkbox" class="form-checkbox rounded text-blue-600" />
+        <label for="mysticCheck">Buy Mystic Medals</label>
+        <input type="number" value="0" name="" id="mysticNumber" class="form-input rounded ml-2 w-16 h-8 align-middle bg-zinc-800 border-none">
+        times
+        <label id="lblmysticCheck" for="mysticNumber">(0 Medals)</label>
+      </div>
+      <div class="pt-4">
+        <input id="friendshipCheck" type="checkbox" class="form-checkbox rounded text-blue-600" />
+        <label for="friendshipCheck">Buy Friendship Bookmarks</label>
+        <input type="number" value="0" name="" id="friendshipNumber" class="form-input rounded ml-2 w-16 h-8 align-middle bg-zinc-800 border-none">
+        times
+        <label id="lblfriendshipCheck" for="friendshipNumber">(0 Bookmarks)</label>
+      </div>
+      <div class="mt-16 w-full justify-center">
+        <button disabled onclick="start()" id="btnStart"class="bg-zinc-800 rounded font-bold w-10/12 py-4 hover:bg-zinc-700 disabled:opacity-50 disabled:hover:bg-zinc-800">Start</button>
+      </div>
+    </div>
+
+    <div class="shrink-0 w-1/4">
+      <textarea name="" id="" cols="30" rows="10" readonly class="h-full border-zinc-600 bg-zinc-800 resize-none focus:border-zinc-600" style="background:url(https://i.imgur.com/UJiAK7D.png) ;background-size: 100% 100%;background-repeat: no-repeat;"></textarea>
+    </div>
+  </div>
+
+  <footer>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="./js/bookmark.js"></script>
+  </footer>
+
+</body>
+
+</html>
