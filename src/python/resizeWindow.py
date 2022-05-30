@@ -3,7 +3,6 @@ import win32api,win32con,win32gui
 import pyautogui
 pyautogui.FAILSAFE = False
 emulatorName = sys.argv[1]
-print(emulatorName)
 
 wnd = win32gui.FindWindow(False,emulatorName)
 win32gui.ShowWindow(wnd,1)

@@ -13,13 +13,14 @@
   },
   "keywords": [],
   "author": {
-    "name": "Diogo Lopes",
-    "email": "madaritoto@gmail.com"
+    "name": "Bruh Bruh"
   },
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "icon.ico"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",

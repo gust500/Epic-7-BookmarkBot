@@ -7,9 +7,7 @@ import time
 import keyboard 
 import random
 import win32api,win32con,win32gui
-import os
-print("Working dir:", os.getcwd())
-print("Files in here:", os.listdir("."))
+print(sys.argv)
 args = json.loads(sys.argv[1])
 imagePath = sys.argv[2]
 
@@ -20,7 +18,7 @@ nOfBookmarks = {'covenant':0,'mystic':0,'friendship':0}
 getBookmarks = args['getBookmarks']
 wantBookmarks = args['wantBookmarks']
 gotBookmark = {'covenant':False,'mystic':False,'friendship':False}
-
+print(sys.argv)
 
 def searchBookmarks(bookmarkName):
     if(int(wantBookmarks[bookmarkName]) > nOfBookmarks[bookmarkName] ):
@@ -34,46 +32,35 @@ def searchBookmarks(bookmarkName):
                 pyautogui.click(x=center.x+350,y=center.y+10)
                 sleep(1)
                 pyautogui.click(x=windowX+450,y=windowY+350)
+                sleep(0.5)
                 nOfBookmarks[bookmarkName] = nOfBookmarks[bookmarkName]+1
                 gotBookmark[bookmarkName] = True
     else:
         sys.exit()
 while 1:
-    sleep(0.25)
-    if getBookmarks['friendship'] : searchBookmarks('friendship')
-    if getBookmarks['covenant'] : searchBookmarks('covenant')
-    if getBookmarks['mystic'] : searchBookmarks('mystic')
+    if getBookmarks['friendship'] == False and getBookmarks['covenant'] == False and getBookmarks['mystic'] == False : sys.exit()
+
+    sleep(1)
+    if getBookmarks['friendship'] == True : searchBookmarks('friendship')
+    if getBookmarks['covenant'] == True : searchBookmarks('covenant')
+    if getBookmarks['mystic'] == True : searchBookmarks('mystic')
 
     pyautogui.moveTo(windowX+550,windowY+250)
     pyautogui.scroll(-500)
-    sleep(1.5)
+    sleep(1.75)
 
-    if getBookmarks['friendship'] : searchBookmarks('friendship')
-    if getBookmarks['covenant'] : searchBookmarks('covenant')
-    if getBookmarks['mystic'] : searchBookmarks('mystic')
+    if getBookmarks['friendship'] == True : searchBookmarks('friendship')
+    if getBookmarks['covenant'] == True : searchBookmarks('covenant')
+    if getBookmarks['mystic'] == True : searchBookmarks('mystic')
     
-    print('--------------')
-
-    try:
-        if keyboard.is_pressed('q'): # it will stop working by clicking q you can change to to any key
-            break
-        else:
-            pass
-    finally:
-        pass
+    
 
     pyautogui.click(x=windowX+150,y=windowY+445)
     sleep(1)
 
-    try:
-        if keyboard.is_pressed('q'): # it will stop working by clicking q you can change to to any key
-            break
-        else:
-            pass
-    finally:
-        pass
-
     pyautogui.click(x=windowX+460,y=windowY+310)
     sleep(0.5)
+
+    print('refresh')
 
     gotBookmark = {'covenant':False,'mystic':False,'friendship':False}

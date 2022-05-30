@@ -67,6 +67,10 @@ body {
 
   color: #e2e2e2;
 }
+
+textarea{
+  color: #e2e2e2;
+}
 .select2-search input {
    background-color: #3f3f46;
   }
