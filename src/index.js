@@ -18,12 +18,12 @@ const createWindow = () => {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    resizable: true,
+    resizable: false,
     icon: path.join(__dirname, '/icon/icon.ico'),
     title: 'Bookmark Bot'
     
   });
-  //mainWindow.setMenu(null)
+  mainWindow.setMenu(null)
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
 };
@@ -32,7 +32,7 @@ app.on('ready', createWindow);
 
 app.whenReady().then(() => {
   // Register a 'CommandOrControl+X' shortcut listener.
-  const ret = globalShortcut.register('Q', () => {
+  const ret = globalShortcut.register('End', () => {
     killProcess(botPid);
   })
 })
