@@ -29,6 +29,30 @@ $(document).ready(function() {
     $('#friendshipNumber').on('input',()=> {
         updateBookmarkNumber('friendship','Bookmarks',5);
     });
+
+    let optionsBot = {
+      mode: 'text',
+      pythonPath: 'py',
+      pythonOptions: ['-u'],
+      scriptPath: path.join(__dirname,"python"),
+      args: [path.join(__dirname,"python/")]
+    };
+  
+    
+  
+    let reqs = PythonShell.run('installReq.py', optionsBot,function (err, results) {
+      if (err) throw err;
+    })
+  
+    reqs.on('message', function (message) {
+      // received a message sent from the Python script (a simple "print" statement)
+      console.log(message)
+    });
+  
+    reqs.on('close',(code) => {
+      $("#loaderPage").addClass('hidden')
+      $("#Page").toggleClass('hidden flex')
+    });
 });
 
 async function getWindows() {

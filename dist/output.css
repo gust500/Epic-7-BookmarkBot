@@ -765,6 +765,26 @@ select {
   background-color: currentColor;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.top-2\/4 {
+  top: 50%;
+}
+
+.left-2\/4 {
+  left: 50%;
+}
+
+.right-2\/4 {
+  right: 50%;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -781,8 +801,32 @@ select {
   margin-top: 0.5rem;
 }
 
+.mb-\[5px\] {
+  margin-bottom: 5px;
+}
+
+.mt-\[-68px\] {
+  margin-top: -68px;
+}
+
+.ml-\[-68px\] {
+  margin-left: -68px;
+}
+
+.mr-\[50px\] {
+  margin-right: 50px;
+}
+
+.mr-16 {
+  margin-right: 4rem;
+}
+
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-8 {
@@ -791,6 +835,10 @@ select {
 
 .h-24 {
   height: 6rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-full {
@@ -854,11 +902,6 @@ select {
 .bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
-}
-
-.bg-zinc-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(63 63 70 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -997,4 +1040,36 @@ textarea:focus{
 
 select:focus > option:checked {
   background: #000 !important;
+}
+
+#loader {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

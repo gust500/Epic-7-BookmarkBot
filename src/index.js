@@ -23,7 +23,7 @@ const createWindow = () => {
     title: 'Bookmark Bot'
     
   });
-  mainWindow.setMenu(null)
+  //mainWindow.setMenu(null)
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
 };
