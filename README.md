@@ -9,7 +9,7 @@ Bookmark Bot is a bot to buy Covenant and/or Friendship bookmarks and/or Mystic 
 - Stats available to see your luck
 
 ## Installation
-Bookmark Bot requires [Python](https://www.python.org/downloads/) to run.
+Bookmark Bot requires [Python](https://www.python.org/downloads/) to run (ADD TO PATH WHEN INSTALLING).
 
 To get Bookmark Bot running just download the run the setup
 
